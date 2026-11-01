@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海龟汤详情 - 法考版</title>
+    <!-- 引入全局样式 -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 详情页专属微调样式，防止冲突 */
+        .game-container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .game-title { color: #2c3e50; font-size: 28px; margin-bottom: 10px; }
+        .game-meta { color: #7f8c8d; font-size: 14px; margin-bottom: 20px; }
+        .section-box { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .clue-item { background: #f8f9fa; border-left: 4px solid #3498db; padding: 10px 15px; margin-bottom: 8px; border-radius: 0 5px 5px 0; }
+        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+        .nav-back { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body style="background-color: #f4f6f9; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+
+    <div class="game-container">
+        <!-- 返回首页 -->
+        <a href="index.html" class="nav-back">← 返回首页</a>
+
+        <!-- 题目内容区 -->
+        <div class="section-box">
+            <h1 id="soup-title" class="game-title">加载中...</h1>
+            <div id="soup-category" class="game-meta"></div>
+            
+            <h3>【汤面】</h3>
+            <p id="soup-face" style="line-height: 1.6; color: #333;"></p>
+
+            <h3>【线索】</h3>
+            <div id="soup-clues"></div>
+
+            <!-- 隐藏的汤底区域 -->
+            <div id="truth-area" style="display: none; margin-top: 20px; border-top: 1px dashed #ccc; padding-top: 20px;">
+                <h3 style="color: #e74c3c;">【汤底】</h3>
+                <p id="soup-truth" style="line-height: 1.6; color: #c0392b; background: #fdf2f2; padding: 15px; border-radius: 8px;"></p>
+            </div>
+
+            <!-- 操作按钮区 -->
+            <div class="btn-group">
+                <button id="btn-toggle-truth" class="action-btn truth-btn" onclick="toggleTruth()">🔍 查看汤底</button>
+                <button class="action-btn" onclick="shareSoup()" style="background-color: #3498db;">🔗 分享本题</button>
+                <button class="action-btn" onclick="openCorrectionModal()" style="background-color: #e67e22;">⚠️ 纠错反馈</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 纠错弹窗 -->
+    <div id="correction-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;">
+        <div style="background:white; margin:100px auto; padding:20px; width:90%; max-width:400px; border-radius:10px;">
+            <h3 style="margin-top:0;">提交纠错建议</h3>
+            <p style="font-size:14px; color:#666;">如果发现汤面、汤底有误，请告诉我们。</p>
+            <textarea id="feedback-text" placeholder="请描述具体问题..." style="width:100%; height:100px; padding:10px; box-sizing:border-box; border:1px solid #ccc; border-radius:5px; margin-bottom:10px;"></textarea>
+            <div style="text-align:right;">
+                <button onclick="closeModal()" style="padding:8px 15px; margin-right:10px; border:1px solid #ccc; background:white; border-radius:5px; cursor:pointer;">取消</button>
+                <button onclick="submitFeedback()" style="padding:8px 15px; background:#2980b9; color:white; border:none; border-radius:5px; cursor:pointer;">提交反馈</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入 JS 逻辑 -->
+    <script src="js/api.js"></script>
+    <script src="js/share.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>

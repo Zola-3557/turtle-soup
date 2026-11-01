@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法考海龟汤</title>
+    <style>
+        /* 基础重置与布局 */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
+        
+        /* 顶部导航 */
+        .header-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .header-nav h1 { margin: 0; font-size: 24px; color: #2c3e50; }
+        .header-nav a { text-decoration: none; background-color: #95a5a6; color: white; padding: 8px 15px; border-radius: 4px; font-size: 14px; transition: 0.3s; }
+        .header-nav a:hover { background-color: #7f8c8d; }
+        
+        /* 控制栏 */
+        .controls-container { display: flex; gap: 10px; justify-content: center; align-items: center; flex-wrap: wrap; }
+        .controls-container select { padding: 10px; border-radius: 5px; border: 1px solid #ddd; font-size: 16px; }
+        
+        /* 列表与卡片 */
+        #soup-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-top: 20px; }
+        .soup-card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s; cursor: pointer; border: 2px solid transparent; }
+        .soup-card:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); border-color: #3498db; }
+        .soup-card h3 { margin-top: 0; color: #2980b9; font-size: 18px; }
+        .soup-card p { color: #7f8c8d; font-size: 14px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        
+        /* 详情区域 */
+        #soup-container { background: white; margin-top: 30px; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); min-height: 200px; }
+        .action-btn { display: block; width: 100%; padding: 12px; margin: 10px 0; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: 0.3s; }
+        .action-btn:hover { background-color: #2980b9; }
+        .truth-btn { background-color: #2ecc71; }
+        .truth-btn:hover { background-color: #27ae60; }
+        .hidden-area { display: none; margin-top: 15px; padding: 15px; border-radius: 5px; background: #f8f9fa; }
+        #truth-area.show { display: block; background: #e8f4f8; color: #c0392b; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="header-nav">
+        <h1>欢迎来到法考海龟汤！</h1>
+        <a href="submit.html">📝 纠错与建议</a>
+    </div>
+
+    <!-- 分类筛选 -->
+    <div class="controls-container">
+        <select id="category-select">
+            <option value="">全部分类</option>
+            <option value="法考-刑法">法考-刑法</option>
+            <option value="法考-民法">法考-民法</option>
+            <option value="法考-行政法">法考-行政法</option>
+            <option value="法考-刑诉法">法考-刑诉法</option>
+            <option value="法考-民诉法">法考-民诉法</option>
+            <option value="法考-商经法">法考-商经法</option>
+            <option value="法考-理论法">法考-理论法</option>
+            <option value="法考-三国法">法考-三国法</option>
+            <option value="正常">普通海龟汤</option>
+        </select>
+    </div>
+
+    <!-- 题目列表容器 -->
+    <div id="soup-list"></div>
+
+    <!-- 题目详情容器 -->
+    <div id="soup-container">
+        <p style="text-align: center; color: #666; padding: 50px 0;">点击上方的题目卡片，查看详情、线索与汤底</p>
+    </div>
+
+    <!-- 引入外部 JS -->
+   <!-- ✅ 正确 -->
+<!-- 引入 API 工具 -->
+<script src="js/api.js"></script>
+<!-- 引入首页专用逻辑 -->
+<script src="js/index.js"></script>
+</body>
+</html>
